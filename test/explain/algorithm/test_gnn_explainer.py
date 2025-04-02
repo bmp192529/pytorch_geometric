@@ -329,7 +329,8 @@ def test_gnn_explainer_hetero(
     target = None
     if explanation_type == ExplanationType.phenomenon:
         with torch.no_grad():
-            target = model(hetero_data.x_dict, hetero_data.edge_index_dict).argmax(-1)
+            target = model(hetero_data.x_dict,
+                           hetero_data.edge_index_dict).argmax(-1)
 
     explainer = Explainer(
         model=model,
